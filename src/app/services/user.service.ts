@@ -67,4 +67,15 @@ export class UserService {
     }
   }
 
+  saveUser(user: User) {
+
+  }
+
+  updateUser(user: User) {
+    const idx = this.users.findIndex((v) => v.id === user.id);
+    if (idx != -1) {
+      this.users[idx] = user;
+    }
+  }
+
 }
