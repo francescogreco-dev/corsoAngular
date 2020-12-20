@@ -20,11 +20,20 @@ export class UserDetailComponent implements OnInit {
       this.userService.updateUser(this.user);
     } else {
       if (this.user.name != '') {
-        this.userService.saveUser(this.user);
+        this.userService.createUser(this.user);
       } else {
         alert('compilare tutti i campi!');
       }
     }
+  }
+
+  resetForm(form) {
+    if (this.user.id === 0) {
+      this.user = new User();
+    } else {
+      form.reset();
+    }
+
   }
 
 }

@@ -10,8 +10,13 @@ export class AppComponent {
   title = 'UMS';
   showForm: boolean = false;
   userSelected: User = new User();
+
   updateUser(user: User) {
     this.showForm = true;
     this.userSelected = user;
+  }
+  newUser() {
+    this.userSelected = new User();
+    this.showForm = true;
   }
 }
