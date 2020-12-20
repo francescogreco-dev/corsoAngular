@@ -67,15 +67,15 @@ export class UserService {
     }
   }
 
-  saveUser(user: User) {
-
-  }
-
   updateUser(user: User) {
     const idx = this.users.findIndex((v) => v.id === user.id);
     if (idx != -1) {
       this.users[idx] = user;
     }
+  }
+
+  createUser(user: User) {
+    this.users.splice(0, 0, user);
   }
 
 }
