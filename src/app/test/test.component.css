@@ -1,0 +1,11 @@
+p{
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 3px 3px black;
+  color: lightgray;
+  background: rebeccapurple;
+  padding-right: 35px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 30px;
+}

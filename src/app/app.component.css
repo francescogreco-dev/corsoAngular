@@ -1,0 +1,30 @@
+#testa{
+  text-align: center;
+  background-color: lightblue;
+  color: white;
+  border: 2px dotted black;
+}
+
+.main{
+  width: 99%;
+  margin: auto;
+  vertical-align: top;
+}
+#testa h1{
+  text-shadow: 2px 2px #644f4f;
+}
+
+#test-component{
+  text-align: right;
+  padding: 25px;
+}
+.users{
+  border: 1px solid black;
+  float: left;
+  width: 53%;
+}
+.userDetail{
+  border: 1px solid black;
+  float: left;
+  width: 45%;
+}
