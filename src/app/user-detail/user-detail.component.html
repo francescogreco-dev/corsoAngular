@@ -2,30 +2,30 @@
   <input [(ngModel)]="user.id" type="hidden" name="id" id="id">
   <div class="form-group">
     <label for="firstname">Firstname</label>
-    <input [(ngModel)]="user.name" name="firstname" id="firstname">
+    <input class="form-control" [(ngModel)]="user.name" name="firstname" id="firstname">
   </div>
   <div class="form-group">
     <label for="lastname">lastname</label>
-    <input [(ngModel)]="user.lastname" name="lastname" id="lastname">
+    <input class="form-control" [(ngModel)]="user.lastname" name="lastname" id="lastname">
   </div>
   <div class="form-group">
     <label for="fiscalcode">fiscalcode</label>
-    <input [(ngModel)]="user.fiscalcode" name="fiscalcode" id="fiscalcode">
+    <input  class="form-control"[(ngModel)]="user.fiscalcode" name="fiscalcode" id="fiscalcode">
   </div>
   <div class="form-group">
     <label for="email">email</label>
-    <input [(ngModel)]="user.email" type="email" name="email" id="email">
+    <input class="form-control" [(ngModel)]="user.email" type="email" name="email" id="email">
   </div>
   <div class="form-group">
     <label for="phone">phone</label>
-    <input [(ngModel)]="user.phone"name="phone" id="phone">
+    <input class="form-control" [(ngModel)]="user.phone"name="phone" id="phone">
   </div>
   <div class="form-group">
     <label for="province">province</label>
-    <input [(ngModel)]="user.province" name="province" id="province">
+    <input class="form-control" [(ngModel)]="user.province" name="province" id="province">
   </div>
   <div class="form-group form-footer">
-    <button class="btn-reset" (click)="resetForm(f.form)">Reset</button>
-    <button class="btn-save" (click) = "saveUser()">Salva</button>
+    <button class="btn btn-outline-secondary" (click)="resetForm(f.form)">Reset</button>
+    <button class="btn btn-success" (click) = "saveUser()">Salva</button>
   </div>
 </form>

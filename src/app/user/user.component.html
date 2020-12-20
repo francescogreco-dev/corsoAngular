@@ -5,6 +5,12 @@
 <td style="text-align: center;">{{user.phone}}</td>
 <td style="text-align: center;">{{user.province}}</td>
 <td>
-  <button class="update" (click)="updateUser()">UPDATE</button>
-  <button class="delete" (click)="deleteUser()">DELETE</button>
+  <div class="row">
+    <div class="col-sm-6">
+      <button class="btn btn-primary btn-sm" (click)="updateUser()"><fa-icon [icon]="faPen"></fa-icon></button>
+    </div>
+    <div class="col-sm-6">
+      <button class="btn btn-danger btn-sm" (click)="deleteUser()"><fa-icon [icon]="fatrah"></fa-icon></button>
+    </div>
+  </div>
 </td>

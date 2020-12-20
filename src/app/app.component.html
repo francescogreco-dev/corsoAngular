@@ -1,21 +1,21 @@
-<div id="testa">
-  <h1>User Management System</h1>
-</div>
-<ul>
-  <li>
-    <a href="#" class="new-user" (click) = 'newUser()'>Nuovo utente</a>
-  </li>
-</ul>
-<div id="test-component">
-  <app-test-component></app-test-component>
-</div>
-<div class="main">
-  <div class="users">
-    <app-users (updateUser) = "updateUser($event)"></app-users>
+<div class="container">
+  <div id="testa">
+    <h1>User Management System</h1>
   </div>
-  <div class="userDetail" *ngIf="showForm">
-    <app-user-detail [user]="userSelected"></app-user-detail>
+  <ul>
+    <li>
+      <a href="#" class="new-user" (click) = 'newUser()'>Nuovo utente</a>
+    </li>
+  </ul>
+  <div id="test-component">
+    <app-test-component></app-test-component>
+  </div>
+  <div class="row">
+    <div class="col-9">
+      <app-users (updateUser) = "updateUser($event)"></app-users>
+    </div>
+    <div class="col-3" *ngIf="showForm">
+      <app-user-detail [user]="userSelected"></app-user-detail>
+    </div>
   </div>
 </div>
-
-
