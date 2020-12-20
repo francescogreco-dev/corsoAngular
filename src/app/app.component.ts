@@ -8,8 +8,10 @@ import { User } from './classes/User';
 })
 export class AppComponent {
   title = 'UMS';
+  showForm: boolean = false;
   userSelected: User = new User();
   updateUser(user: User) {
+    this.showForm = true;
     this.userSelected = user;
   }
 }
