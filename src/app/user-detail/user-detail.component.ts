@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from './../classes/User';
+import { UserService } from './../services/user.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -9,13 +10,21 @@ import { User } from './../classes/User';
 export class UserDetailComponent implements OnInit {
 
   @Input() user: User;
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
   saveUser() {
-    alert(this.user.id);
+    if (this.user.id > 0) {
+      this.userService.updateUser(this.user);
+    } else {
+      if (this.user.name != '') {
+        this.userService.saveUser(this.user);
+      } else {
+        alert('compilare tutti i campi!');
+      }
+    }
   }
 
 }
