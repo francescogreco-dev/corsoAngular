@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserInterface } from './interfaces/User';
 import { User } from './classes/User';
 
 @Component({
