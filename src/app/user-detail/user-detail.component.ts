@@ -15,7 +15,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   saveUser() {
-    alert(this.user.email);
+    alert(this.user.id);
   }
 
 }
