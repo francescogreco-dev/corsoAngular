@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from './../classes/User';
 import { UserService } from './../services/user.service';
-
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
@@ -11,6 +11,7 @@ export class UserDetailComponent implements OnInit {
 
   private userCopy: User;
   private __user: User;
+  faPencilAlt = faPencilAlt;
   @Input() set user(user: User) {
     this.__user = user;
     this.userCopy = Object.assign({}, user);
