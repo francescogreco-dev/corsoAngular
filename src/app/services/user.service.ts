@@ -1,63 +1,73 @@
 import { Injectable } from '@angular/core';
 import { UserInterface } from './../interfaces/User';
 import { User } from './../classes/User';
+import { HttpClient } from '@angular/common/http';
 
+interface UserResponse {
+  data: User[];
+  message: string
+}
 
 @Injectable()
 
 export class UserService {
 
-  users: User[] = [
-    {
-      id: 1,
-      name: 'Francesco',
-      lastname: 'Greco',
-      email: 'test.test@test.it',
-      fiscalcode: 'grcfnc79d21g273u',
-      province: 'palermo',
-      phone: '3664583151'
-    },
-    {
-      id: 2,
-      name: 'Ciccio',
-      lastname: 'Valenti',
-      email: 'test.test@test.it',
-      fiscalcode: 'grcfnc79d21g273u',
-      province: 'palermo',
-      phone: '3664583151'
-    },
-    {
-      id: 3,
-      name: 'Ciccio',
-      lastname: 'Palermo',
-      email: 'test.test@test.it',
-      fiscalcode: 'grcfnc79d21g273u',
-      province: 'palermo',
-      phone: '3664583151'
-    },
-    {
-      id: 4,
-      name: 'Ciccio',
-      lastname: 'Iervolino',
-      email: 'test.test@test.it',
-      fiscalcode: 'grcfnc79d21g273u',
-      province: 'palermo',
-      phone: '3664583151'
-    },
-    {
-      id: 5,
-      name: 'Ciccio',
-      lastname: 'Castagna',
-      email: 'test.test@test.it',
-      fiscalcode: 'grcfnc79d21g273u',
-      province: 'palermo',
-      phone: '3664583151'
-    }
-  ];
-  constructor() { }
+  // users: User[] = [
+  //   {
+  //     id: 1,
+  //     name: 'Francesco',
+  //     lastname: 'Greco',
+  //     email: 'test.test@test.it',
+  //     fiscalcode: 'grcfnc79d21g273u',
+  //     province: 'palermo',
+  //     phone: '3664583151'
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Ciccio',
+  //     lastname: 'Valenti',
+  //     email: 'test.test@test.it',
+  //     fiscalcode: 'grcfnc79d21g273u',
+  //     province: 'palermo',
+  //     phone: '3664583151'
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'Ciccio',
+  //     lastname: 'Palermo',
+  //     email: 'test.test@test.it',
+  //     fiscalcode: 'grcfnc79d21g273u',
+  //     province: 'palermo',
+  //     phone: '3664583151'
+  //   },
+  //   {
+  //     id: 4,
+  //     name: 'Ciccio',
+  //     lastname: 'Iervolino',
+  //     email: 'test.test@test.it',
+  //     fiscalcode: 'grcfnc79d21g273u',
+  //     province: 'palermo',
+  //     phone: '3664583151'
+  //   },
+  //   {
+  //     id: 5,
+  //     name: 'Ciccio',
+  //     lastname: 'Castagna',
+  //     email: 'test.test@test.it',
+  //     fiscalcode: 'grcfnc79d21g273u',
+  //     province: 'palermo',
+  //     phone: '3664583151'
+  //   }
+  // ];
+
+  users: User[] = [];
+  private APIURL = 'http://localhost:8000/users';
+
+  constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.users;
+    // return this.users;
+    return this.http.get<UserResponse>(this.APIURL);
   }
 
   getUser(id: number): User {
