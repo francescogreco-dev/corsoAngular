@@ -24,8 +24,11 @@
     <label for="province">province</label>
     <input class="form-control" [(ngModel)]="user.province" name="province" id="province">
   </div>
-  <div class="form-group form-footer">
-    <button class="btn btn-outline-secondary" (click)="resetForm(f.form)">Reset</button>
+  <div class="form-group form-footer text-center">
+    <!-- <button (click)="backToUsers()" class="btn btn-primary">Indietro</button> -->
+    <a href="#" class="new-user btn btn-primary" routerLink="">Indietro</a>
     <button class="btn btn-success" (click) = "saveUser()">Salva</button>
+    <button class="btn btn-danger" (click) = "closeFormEvent()">Chiudi</button>
+    <button class="btn btn-outline-secondary" (click)="resetForm(f.form)">Reset</button>
   </div>
 </form>

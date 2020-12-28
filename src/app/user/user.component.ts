@@ -2,10 +2,11 @@ import { UserService } from '../services/user.service';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { UserInterface } from './../interfaces/User';
 import { EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { User } from './../classes/User';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class UserComponent implements OnInit {
   @Output('onSelectUser') onSelectUser = new EventEmitter();
   faPen = faPencilAlt;
   fatrah = faTrashAlt;
-  constructor(private userService: UserService) {
+  faInfo = faInfo;
+  constructor(private userService: UserService, private route: Router) {
 
   }
 
@@ -31,7 +33,12 @@ export class UserComponent implements OnInit {
   }
 
   updateUser() {
-    this.onSelectUser.emit(this.user)
+    this.route.navigate(['users', this.user.id, 'edit']);
+    this.onSelectUser.emit(this.user);
+  }
+
+  showUserDetails() {
+    this.route.navigate(['users', this.user.id]);
   }
 
 }
