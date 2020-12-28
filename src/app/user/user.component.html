@@ -4,13 +4,16 @@
 <td style="text-align: center;">{{user.email}}</td>
 <td style="text-align: center;">{{user.phone}}</td>
 <td style="text-align: center;">{{user.province}}</td>
-<td>
+<td class="buttons">
   <div class="row">
-    <div class="col-sm-6">
-      <button class="btn btn-primary btn-sm" (click)="updateUser()"><fa-icon [icon]="faPen"></fa-icon></button>
+    <div class="col-sm-4">
+      <button class="btn btn-primary btn-sm" (click)="showUserDetails()"><fa-icon [icon]="faInfo" fixed="true"></fa-icon></button>
     </div>
-    <div class="col-sm-6">
-      <button class="btn btn-danger btn-sm" (click)="deleteUser()"><fa-icon [icon]="fatrah"></fa-icon></button>
+    <div class="col-sm-4">
+      <button class="btn btn-primary btn-sm" (click)="updateUser()"><fa-icon [icon]="faPen" fixed="true"></fa-icon></button>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-danger btn-sm" (click)="deleteUser()"><fa-icon [icon]="fatrah" fixed="true"></fa-icon></button>
     </div>
   </div>
 </td>

@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from './../classes/User';
 import { UserService } from './../services/user.service';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
@@ -12,6 +13,9 @@ export class UserDetailComponent implements OnInit {
   private userCopy: User;
   private __user: User;
   faPencilAlt = faPencilAlt;
+
+  @Output() onCloseForm = new EventEmitter<boolean>();
+
   @Input() set user(user: User) {
     this.__user = user;
     this.userCopy = Object.assign({}, user);
@@ -21,9 +25,20 @@ export class UserDetailComponent implements OnInit {
     return this.__user;
   }
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {
+
+  }
 
   ngOnInit(): void {
+    this.user = new User();
+    this.route.params.subscribe(
+      (params) => {
+        if (!params.id) {
+          return;
+        }
+        this.user = this.userService.getUser(+params.id);
+      }
+    );
   }
 
   saveUser() {
@@ -32,6 +47,7 @@ export class UserDetailComponent implements OnInit {
     } else {
       if (this.user.name != '') {
         this.userService.createUser(this.user);
+        this.router.navigate(['users']);
       } else {
         alert('compilare tutti i campi!');
       }
@@ -45,6 +61,13 @@ export class UserDetailComponent implements OnInit {
       this.user = this.userCopy;
     }
 
+  }
+
+  closeFormEvent() {
+    this.onCloseForm.emit(false);
+  }
+  backToUsers() {
+    this.router.navigate(['users']);
   }
 
 }

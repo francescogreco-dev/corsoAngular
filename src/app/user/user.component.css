@@ -25,3 +25,12 @@ button.update{
   font-weight: bold;
   margin: 5px;
 } */
+.buttons{
+  width: 150px;
+  text-align: center;
+}
+
+.buttons button{
+  padding: 1px;
+  width: 30px;
+}
