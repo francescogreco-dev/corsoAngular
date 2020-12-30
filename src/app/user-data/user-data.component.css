@@ -1,6 +1,7 @@
 table th
 {
-  width: 200px;
+  width: 100px;
+  border-right: 1px solid white;
 }
 table tr {
   border: 3px solid white;

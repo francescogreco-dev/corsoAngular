@@ -3,8 +3,13 @@ import { UserInterface } from './../interfaces/User';
 import { User } from './../classes/User';
 import { HttpClient } from '@angular/common/http';
 
-interface UserResponse {
+interface UsersResponse {
   data: User[];
+  message: string
+}
+
+interface UserResponse {
+  data: User;
   message: string
 }
 
@@ -67,11 +72,12 @@ export class UserService {
 
   getUsers() {
     // return this.users;
-    return this.http.get<UserResponse>(this.APIURL);
+    return this.http.get<UsersResponse>(this.APIURL);
   }
 
-  getUser(id: number): User {
-    return this.users.find(user => user.id === id);
+  getUser(id: number) {
+    // return this.users.find(user => user.id === id);
+    return this.http.get<UserResponse>(this.APIURL + '/' + id);
   }
 
   deleteUser(user: User) {
