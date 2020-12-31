@@ -5,12 +5,14 @@ import { HttpClient } from '@angular/common/http';
 
 interface UsersResponse {
   data: User[];
-  message: string
+  message: string;
+  success: boolean;
 }
 
 interface UserResponse {
   data: User;
-  message: string
+  message: string;
+  success: boolean;
 }
 
 @Injectable()
@@ -88,15 +90,17 @@ export class UserService {
   }
 
   updateUser(user: User) {
-    const idx = this.users.findIndex((v) => v.id === user.id);
-    if (idx != -1) {
-      this.users[idx] = user;
-    }
+    return this.http.patch<UserResponse>(this.APIURL + '/' + user.id, user);
+    // const idx = this.users.findIndex((v) => v.id === user.id);
+    // if (idx != -1) {
+    //   this.users[idx] = user;
+    // }
   }
 
   createUser(user: User) {
-    user.id = this.users.length + 1;
-    this.users.splice(0, 0, user);
+    // user.id = this.users.length + 1;
+    // this.users.splice(0, 0, user);
+    return this.http.post<UserResponse>(this.APIURL, user);
   }
 
 }
