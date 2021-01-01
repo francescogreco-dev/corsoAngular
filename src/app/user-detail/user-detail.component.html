@@ -1,34 +1,49 @@
 <form class="userForm" #f="ngForm">
   <input [(ngModel)]="user.id" type="hidden" name="id" id="id">
-  <div class="form-group">
-    <label for="firstname">Firstname</label>
-    <input class="form-control" [(ngModel)]="user.name" name="firstname" id="firstname">
+  <div class="form-row">
+    <div class="form-group col-sm-6">
+      <label for="firstname">Firstname</label>
+      <input required minlength="3" #firtsName="ngModel" class="form-control" [(ngModel)]="user.name" name="firstname"
+        id="firstname">
+      <div *ngIf="firtsName.dirty && firtsName.touched && firtsName.invalid">
+        <div class="alert-danger" *ngIf="firtsName.errors.required">
+          Il nome è obbligatorio!
+        </div>
+        <div class="alert-danger" *ngIf="firtsName.errors.minlength">
+          Lunghezza minima {{firtsName.errors.minlength.requiredLength}} caratteri!
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="lastname">lastname</label>
+      <input class="form-control" [(ngModel)]="user.lastname" name="lastname" id="lastname">
+    </div>
   </div>
-  <div class="form-group">
-    <label for="lastname">lastname</label>
-    <input class="form-control" [(ngModel)]="user.lastname" name="lastname" id="lastname">
+  <div class="form-row">
+    <div class="form-group col-sm-6">
+      <label for="fiscalcode">fiscalcode</label>
+      <input class="form-control" [(ngModel)]="user.fiscalcode" name="fiscalcode" id="fiscalcode">
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="email">email</label>
+      <input class="form-control" [(ngModel)]="user.email" type="email" name="email" id="email">
+    </div>
   </div>
-  <div class="form-group">
-    <label for="fiscalcode">fiscalcode</label>
-    <input  class="form-control"[(ngModel)]="user.fiscalcode" name="fiscalcode" id="fiscalcode">
-  </div>
-  <div class="form-group">
-    <label for="email">email</label>
-    <input class="form-control" [(ngModel)]="user.email" type="email" name="email" id="email">
-  </div>
-  <div class="form-group">
-    <label for="phone">phone</label>
-    <input class="form-control" [(ngModel)]="user.phone"name="phone" id="phone">
-  </div>
-  <div class="form-group">
-    <label for="province">province</label>
-    <input class="form-control" [(ngModel)]="user.province" name="province" id="province">
+  <div class="form-row">
+    <div class="form-group col-sm-6">
+      <label for="phone">phone</label>
+      <input class="form-control" [(ngModel)]="user.phone" name="phone" id="phone">
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="province">province</label>
+      <input class="form-control" [(ngModel)]="user.province" name="province" id="province">
+    </div>
   </div>
   <div class="form-group form-footer text-center">
     <!-- <button (click)="backToUsers()" class="btn btn-primary">Indietro</button> -->
     <a href="#" class="new-user btn btn-primary" routerLink="">Indietro</a>
-    <button class="btn btn-success" (click) = "saveUser()">Salva</button>
-    <button class="btn btn-danger" (click) = "closeFormEvent()">Chiudi</button>
+    <button [disabled]="f.invalid" class="btn btn-success" (click)="saveUser()">Salva</button>
+    <button class="btn btn-danger" (click)="closeFormEvent()">Chiudi</button>
     <button class="btn btn-outline-secondary" (click)="resetForm(f.form)">Reset</button>
   </div>
 </form>
