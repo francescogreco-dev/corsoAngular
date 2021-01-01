@@ -83,10 +83,11 @@ export class UserService {
   }
 
   deleteUser(user: User) {
-    const index = this.users.indexOf(user);
-    if (index >= 0) {
-      this.users.splice(index, 1);
-    }
+    // const index = this.users.indexOf(user);
+    // if (index >= 0) {
+    //   this.users.splice(index, 1);
+    // }
+    return this.http.delete<UserResponse>(this.APIURL + '/' + user.id)
   }
 
   updateUser(user: User) {
