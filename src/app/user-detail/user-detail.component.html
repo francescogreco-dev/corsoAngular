@@ -3,7 +3,7 @@
   <div class="form-row">
     <div class="form-group col-sm-6">
       <label for="firstname">Firstname</label>
-      <input required minlength="3" #firtsName="ngModel" class="form-control" [(ngModel)]="user.name" name="firstname"
+      <input required pattern="[a-zA-Z\s]*" minlength="3" #firtsName="ngModel" class="form-control" [(ngModel)]="user.name" name="firstname"
         id="firstname">
       <div *ngIf="firtsName.dirty && firtsName.touched && firtsName.invalid">
         <div class="alert-danger" *ngIf="firtsName.errors.required">
@@ -11,6 +11,9 @@
         </div>
         <div class="alert-danger" *ngIf="firtsName.errors.minlength">
           Lunghezza minima {{firtsName.errors.minlength.requiredLength}} caratteri!
+        </div>
+        <div class="alert-danger" *ngIf="firtsName.errors.pattern">
+          Nome non valido, immettere solo caratteri e non numero o simboli!
         </div>
       </div>
     </div>
