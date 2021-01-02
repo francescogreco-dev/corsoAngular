@@ -14,6 +14,8 @@ import { NavComponent } from './nav/nav.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UserDataComponent } from './user-data/user-data.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DataTablesModule } from 'angular-datatables';
+
 const routes: Routes = [
   {
     path: '',
@@ -55,7 +57,8 @@ const routes: Routes = [
     FormsModule,
     FontAwesomeModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

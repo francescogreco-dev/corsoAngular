@@ -17,3 +17,6 @@ table caption{
   border: 1px solid black;
   text-shadow: 3px 3px lightgray ;
 } */
+.even {
+  background-color:  rgba(255,255,255,.05);
+}
