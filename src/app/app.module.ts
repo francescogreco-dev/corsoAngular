@@ -15,6 +15,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserDataComponent } from './user-data/user-data.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RoutingModuleModule } from './routing-module.module';
+import { AuthService } from './services/auth.service';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { RoutingModuleModule } from './routing-module.module';
     TestComponent,
     UserDetailComponent,
     NavComponent,
-    UserDataComponent
+    UserDataComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { RoutingModuleModule } from './routing-module.module';
     HttpClientModule,
     RoutingModuleModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
