@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   @Output() onNewUser = new EventEmitter();
-  private isUserLOggedIn: boolean = false;
+  public isUserLOggedIn: boolean = false;
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class NavComponent implements OnInit {
     this.onNewUser.emit()
   }
 
-  logout(e: Event){
+  logout(e: Event) {
     e.preventDefault();
     this.auth.logout();
     this.isUserLOggedIn = false;
